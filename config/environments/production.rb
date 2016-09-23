@@ -89,7 +89,7 @@ Rails.application.configure do
       authentication: "plain",
       enable_starttls_auto: true,
       user_name: "librarymanagentlists"
-      password: "libraryroom"
+      password: 'libraryroom'
   }
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
