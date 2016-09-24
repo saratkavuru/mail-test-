@@ -74,7 +74,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { :host => 'stgs.herokuapp.com' }
   # ActionMailer Config
   # Setup for production - deliveries, no errors raised
-  config.action_mailer.delivery_method = :smtp
+
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default :charset => "utf-8"
@@ -83,13 +83,14 @@ Rails.application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
   config.action_mailer.delivery_method = :smtp
+  # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
-      address: "smtp.gmail.com",
-      port: 25,
-      authentication: "plain",
-      user_name: "librarymanagentlists@gmail.com",
-      password: "libraryroom",
-      enable_starttls_auto: false
+      :address              => "smtp.gmail.com",
+      :port                 => 587,
+      :user_name            => 'librarymanagentlists@gmail.com',
+      :password             => 'libraryroom',
+      :authentication       => "plain",
+      :enable_starttls_auto => true
   }
   config.action_mailer.raise_delivery_errors = true
   if ENV["RAILS_LOG_TO_STDOUT"].present?
