@@ -1,17 +1,15 @@
 <p id="notice"><%= notice %></p>
-<script type = "text/javascript"
-        src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-<script type = "text/javascript" language = "javascript">
-    $(document).ready(function() {
-
-        $("#demo").bind('click', function( event ){
-            <%set_anonymous_mode%>
-        });
-    });
+<script type="text/javascript">
+    <!--
+    function myfunction() {
+        alert("Hello World")
+        <%set_anonymous_mode%>
+    }
+    //-->
 </script>
 
-<h1>Users</h1> <button type="button" id="demo">Anonymize Users!</button> <%=$mode%>
+<h1>Users</h1> <button type="button" id="demo" onclick="myfunction()">Anonymize Users!</button> <%=$mode%>
 
 <table>
   <thead>
