@@ -1,13 +1,27 @@
 <p id="notice"><%= notice %></p>
+<script type = "text/javascript"
+        src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-<h1>Users</h1>
+<script type = "text/javascript" language = "javascript">
+    $(document).ready(function() {
+
+        $("#demo").bind('click', function( event ){
+            <%set_anonymous_mode%>
+        });
+    });
+</script>
+
+<h1>Users</h1> <button type="button" id="demo">Anonymize Users!</button> <%=$mode%>
 
 <table>
   <thead>
     <tr>
       <th>Name</th>
       <th>Email</th>
-      <th>Login</th>
+      <th>Username</th>
+      <% if ($mode) %>
+          <th>Anon name</th>
+          <% end %>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,6 +32,9 @@
         <td><%= user.name %></td>
         <td><%= user.email %></td>
         <td><%= user.login %></td>
+        <% if ($mode) %>
+            <td><%= anonymize(user.name) %>,<%= anonymize(user.login)%></td>
+        <% end %>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
