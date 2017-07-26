@@ -1,0 +1,2 @@
+class AnonymizedFirstName < ApplicationRecord
+end

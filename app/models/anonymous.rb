@@ -1,12 +1,13 @@
 class Anonymous
   def anonymize(name)
-    (name.sum)%50
+    (name.sum)%5
   end
   def anonymize_fullname(name)
     temp=name.split(',')
-    return anonymize(temp[0]),anonymize(temp[-1])
+    return AnonymizedFirstName.find(anonymize(temp[0])).name,AnonymizedLastName.find(anonymize(temp[-1])).name
   end
 end
+
 
 a=Anonymous.new
 puts a.anonymize("Sarat")
