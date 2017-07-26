@@ -2,14 +2,15 @@
 
 <script type="text/javascript">
     <!--
-    function myfunction() {
-        alert("Hello World")
+    function anonfunction() {
+        alert("first- <%=get_anonymous_mode%>")
         <%set_anonymous_mode%>
+        alert("second - <%=get_anonymous_mode%>")
     }
     //-->
 </script>
 
-<h1>Users</h1> <button type="button" id="demo" onclick="myfunction()">Anonymize Users!</button> <%=$mode%>
+<h1>Users</h1> <button type="button" id="demo" onclick="anonfunction()">Anonymize Users!</button> <%=session[:mode]%>
 
 <table>
   <thead>
@@ -17,9 +18,6 @@
       <th>Name</th>
       <th>Email</th>
       <th>Username</th>
-      <% if ($mode) %>
-          <th>Anon name</th>
-          <% end %>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -27,12 +25,9 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.name %></td>
+        <td><%= display_anon_name(user.name) %></td>
         <td><%= user.email %></td>
         <td><%= user.login %></td>
-        <% if ($mode) %>
-            <td><%= anonymize(user.name) %>,<%= anonymize(user.login)%></td>
-        <% end %>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
