@@ -1,16 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<script type="text/javascript">
-    <!--
-    function anonfunction() {
-        alert("first- <%=get_anonymous_mode%>")
-        <%set_anonymous_mode%>
-        alert("second - <%=get_anonymous_mode%>")
-    }
-    //-->
-</script>
-
-<h1>Users</h1> <button type="button" id="demo" onclick="anonfunction()">Anonymize Users!</button> <%=session[:mode]%>
+<h1>Users</h1> <%=link_to "Anon", :controller => :users, :action => :set_anonymous_mode%>
+<%=session[:mode]%>
 
 <table>
   <thead>
