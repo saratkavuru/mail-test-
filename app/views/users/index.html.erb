@@ -17,8 +17,8 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= display_anon_name(user.name) %></td>
-        <td><%=display_anon_name(user.email) %><%if session[:mode]%><%=+"@address.com"%><%end%></td>
-        <td><%= user.login %></td>
+        <td><%=display_anon_mail(user.email) %></td>
+        <td><%= display_anon_handle(user.login) %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -26,7 +26,7 @@
     <% end %>
   </tbody>
 </table>
-<%=anonymize_fullname("Sarat Kavuru") %>
+<%=display_anon_fullname("Sarat Kavuru") %>
 <br>
 
 <%= link_to 'New User', new_user_path %>
