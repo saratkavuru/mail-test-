@@ -63,7 +63,7 @@ class UsersController < ApplicationController
   end
 
   def set_anonymous_mode
-    session[:mode]= !session[:mode]
+    session[:anonymous_mode]= !session[:anonymous_mode]
   redirect_to :back
   end
 

@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Users</h1> <%=link_to "Anon", :controller => :users, :action => :set_anonymous_mode%>
-<%=session[:mode]%>
+<h1>Users</h1> <%=link_to "Anonymize Users!", :controller => :users, :action => :set_anonymous_mode%>
+<%=session[:anonymous_mode]%>
 
 <table>
   <thead>
