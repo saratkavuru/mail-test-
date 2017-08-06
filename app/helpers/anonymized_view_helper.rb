@@ -22,4 +22,7 @@ module AnonymizedViewHelper
     return AnonymizedFirstName.find(anonymize(name)).name.downcase if is_anonymous_mode?
     return name
   end
+  def underlined?(user)
+    user.email[-1] == "u" ? "underlined" : "none"
+  end
 end

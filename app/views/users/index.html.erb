@@ -1,3 +1,9 @@
+<body>
+<style>
+  .underlined{
+    text-decoration: underline;
+  }
+</style>
 <p id="notice"><%= notice %></p>
 
 <h1>Users</h1> <%=link_to "Anonymize Users!", :controller => :users, :action => :set_anonymous_mode%>
@@ -6,6 +12,7 @@
 <table>
   <thead>
     <tr>
+      <th>S.No</th>
       <th>Name</th>
       <th>Email</th>
       <th>Username</th>
@@ -14,9 +21,11 @@
   </thead>
 
   <tbody>
+  <%i=0%>
     <% @users.each do |user| %>
       <tr>
-        <td><%= display_anon_name(user.name) %></td>
+        <td style="position: relative;" ><div style='float: left'><%=i+=1%></div><div style='float: right; top: 0'>a</div></td>
+        <td><span class="<%=  underlined?(user) %>"><%= display_anon_name(user.name) %></span></td>
         <td><%=display_anon_mail(user.email) %></td>
         <td><%= display_anon_handle(user.login) %></td>
         <td><%= link_to 'Show', user %></td>
@@ -30,3 +39,4 @@
 <br>
 
 <%= link_to 'New User', new_user_path %>
+</body>
