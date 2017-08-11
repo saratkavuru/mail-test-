@@ -2,6 +2,7 @@
 <style>
   .underlined{
     text-decoration: underline;
+    font-weight:bold;
   }
 </style>
 <p id="notice"><%= notice %></p>
@@ -24,7 +25,7 @@
   <%i=0%>
     <% @users.each do |user| %>
       <tr>
-        <td style="position: relative;" ><div style='float: left'><%=i+=1%></div><div style='float: right; top: 0'>a</div></td>
+        <td><div style='float: left'><%=i+=1%></div><div style='float: right; top: 0'>a</div></td>
         <td><span class="<%=  underlined?(user) %>"><%= display_anon_name(user.name) %></span></td>
         <td><%=display_anon_mail(user.email) %></td>
         <td><%= display_anon_handle(user.login) %></td>
