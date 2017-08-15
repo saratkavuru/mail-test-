@@ -4,7 +4,7 @@ class Anonymous
   end
   def anonymize_fullname(name)
     temp=name.split(',')
-    return AnonymizedFirstName.find(anonymize(temp[0])).name,AnonymizedLastName.find(anonymize(temp[-1])).name
+    return AnonymizedFirstName.find(anonymize(temp[0])).name,AnonymizedLastname.find(anonymize(temp[-1])).name
   end
 end
 
