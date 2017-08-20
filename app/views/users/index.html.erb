@@ -17,6 +17,7 @@
       <th>Name</th>
       <th>Email</th>
       <th>Username</th>
+      <th>Special Tag</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -29,6 +30,7 @@
         <td><span class="<%=  underlined?(user) %>"><%= display_anon_name(user.name) %></span></td>
         <td><%=display_anon_mail(user.email) %></td>
         <td><%= display_anon_handle(user.login) %></td>
+        <td><%= @type + user.id.to_s  %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -38,6 +40,10 @@
 </table>
 <%=display_anon_fullname("Sarat , Kavuru") %>
 <br>
+
+
+
+
 
 <%= link_to 'New User', new_user_path %>
 </body>
